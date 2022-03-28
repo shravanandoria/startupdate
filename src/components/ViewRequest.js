@@ -29,7 +29,6 @@ const ViewRequest = (props) => {
       setCampaign(campaign);
       const manager = await campaign.methods.manager().call();
       setManager(manager);
-      console.log({ manager });
       const signedUser = await web3.eth.getAccounts();
       setSignedUser(signedUser[0]);
       const requestCount = await campaign.methods.getRequestCount().call();
@@ -41,8 +40,8 @@ const ViewRequest = (props) => {
         requests[i] = request;
       }
       setRequests(requests);
-      <div class="spinner-border text-light" role="status">
-        <span class="sr-only">Loading...</span>
+      <div className="spinner-border text-light" role="status">
+        <span className="sr-only">Loading...</span>
       </div>;
     } catch (error) {
       setError(true);
@@ -89,7 +88,7 @@ const ViewRequest = (props) => {
   }, [approveSuccess, finalizeSuccess]);
   return (
     <>
-      {error && <div class="alert alert-danger">{errorMessage}</div>}
+      {error && <div className="alert alert-danger">{errorMessage}</div>}
       <div className="container my-4 rounded ">
         {signedUser === manager ? (
           <Link to={`/campaign/${param.id}/requests/new`}>
@@ -192,10 +191,10 @@ const ViewRequest = (props) => {
                           >
                             {loading ? (
                               <div
-                                class="spinner-border text-light"
+                                className="spinner-border text-light"
                                 role="status"
                               >
-                                <span class="sr-only">Loading...</span>
+                                <span className="sr-only">Loading...</span>
                               </div>
                             ) : (
                               "Approve"
@@ -216,10 +215,10 @@ const ViewRequest = (props) => {
                             >
                               {loading ? (
                                 <div
-                                  class="spinner-border text-light"
+                                  className="spinner-border text-light"
                                   role="status"
                                 >
-                                  <span class="sr-only">Loading...</span>
+                                  <span className="sr-only">Loading...</span>
                                 </div>
                               ) : (
                                 "Finalize "

@@ -40,7 +40,7 @@ const CreateRequest = (props) => {
   }, []);
   return (
     <>
-      {error && <div class="alert alert-danger">{errorMessage}</div>}
+      {error && <div className="alert alert-danger">{errorMessage}</div>}
       <div className="container  p-9 text-white">
         <form
           className="bg-gray-700 p-4 rounded-md text-white"
@@ -108,8 +108,8 @@ const CreateRequest = (props) => {
             className="text-white bg-blue-500 hover:bg-blue-600  font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             {loading ? (
-              <div class="spinner-border text-light h-5 w-5" role="status">
-                <span class="sr-only">Loading...</span>
+              <div className="spinner-border text-light h-5 w-5" role="status">
+                <span className="sr-only">Loading...</span>
               </div>
             ) : (
               "Submit"

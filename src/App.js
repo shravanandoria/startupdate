@@ -11,19 +11,21 @@ import ViewRequest from "./components/ViewRequest";
 import Footer from "./components/Footer";
 import HDWalletProvider from "@truffle/hdwallet-provider";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Spinner from "./components/Spinner";
 const App = () => {
   const [account, setAccount] = useState("");
   const [campaigns, setCampaigns] = useState([]);
   const [campaignFactory, setCampaignFactory] = useState();
   const [loading, setLoading] = useState(false);
   const [networkData, setNetworkdata] = useState();
+  const [campaignCount, setCampaignCount] = useState();
 
   useEffect(() => {
     document.body.style.backgroundColor = "#6577B3";
 
     loadWeb3();
     loadBlockChainData();
-  }, []);
+  }, [campaignCount]);
   const loadWeb3 = async () => {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
@@ -56,6 +58,11 @@ const App = () => {
       const campaignList = await campaignFactory.methods
         .getDeployedcampaigns()
         .call();
+
+      const campaignCount = await campaignFactory.methods
+        .campaignCount()
+        .call();
+      setCampaignCount(campaignCount);
       setCampaigns(campaignList);
       setLoading(false);
     } else {
@@ -74,11 +81,13 @@ const App = () => {
             path="/"
             element={
               !loading ? (
-                <Home campaigns={campaigns} count={campaigns.length} />
+                <Home
+                  loadWeb3={loadWeb3}
+                  campaignFactory={campaignFactory}
+                  campaigns={campaigns}
+                />
               ) : (
-                <div className="spinner-border text-dark" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
+                <Spinner />
               )
             }
           />
@@ -96,6 +105,7 @@ const App = () => {
             path="/create"
             element={
               <CreateCampaign
+                setCampaignCount={setCampaignCount}
                 account={account}
                 loading={loading}
                 campaignFactory={campaignFactory}

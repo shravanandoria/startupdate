@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
+import CampaignFactory from "../abis/CampaignFactory.json";
 import CardItem from "./CardItem";
 import { Link } from "react-router-dom";
 
 const Home = (props) => {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    setCount(props.count);
-  }, [count]);
   return (
     <>
       <div className="container my-3 md:flex md:flex-col md:items-center md:justify-center ">

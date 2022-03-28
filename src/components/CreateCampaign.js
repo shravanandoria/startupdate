@@ -50,10 +50,12 @@ const CreateCampaign = (props) => {
           imageUrl
         )
         .send({ from: props.account });
-
-      const campaigns = await props.campaignFactory.methods.campaigns(0).call();
+      const campaignCount = await props.campaignFactory.methods
+        .campaignCount()
+        .call();
+      props.setCampaignCount(campaignCount);
       setLoading(false);
-      window.location.pathname = "/";
+      navigate("/");
     } catch (error) {
       setLoading(false);
       setError(true);

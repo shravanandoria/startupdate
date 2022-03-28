@@ -96,7 +96,7 @@ const ViewCampaign = (props) => {
   }, [amount]);
   return (
     <div>
-      {isError && <div class="alert alert-danger">{error}</div>}
+      {isError && <div className="alert alert-danger">{error}</div>}
       <div className="w-full flex h-full flex-col  justify-center items-center px-3 ">
         <img
           className="rounded w-72 mt-4 shadow-lg md:w-full md:h-80 lg:w-80"
@@ -143,8 +143,11 @@ const ViewCampaign = (props) => {
               className="mx-3 btn bg-indigo-600 my-2 text-white font-semibold hidden md:block lg:hidden "
             >
               {loading ? (
-                <div class="spinner-border text-light h-6 w-6" role="status">
-                  <span class="sr-only">Loading...</span>
+                <div
+                  className="spinner-border text-light h-6 w-6"
+                  role="status"
+                >
+                  <span className="sr-only">Loading...</span>
                 </div>
               ) : (
                 "Contribute!"
@@ -158,8 +161,8 @@ const ViewCampaign = (props) => {
             className="mx-3 btn bg-indigo-600 my-2 text-white font-semibold md:hidden lg:block lg:my-4"
           >
             {loading ? (
-              <div class="spinner-border text-light h-6 w-6" role="status">
-                <span class="sr-only">Loading...</span>
+              <div className="spinner-border text-light h-6 w-6" role="status">
+                <span className="sr-only">Loading...</span>
               </div>
             ) : (
               "Contribute!"
