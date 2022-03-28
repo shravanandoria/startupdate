@@ -49,7 +49,7 @@ const App = () => {
     if (networkData) {
       const campaignFactory = new web3.eth.Contract(
         CampaignFactory.abi,
-        process.env.CONTRACT_ADDRESS
+        "0x6a9dd6be6e42d984c418fe866e99e72df8dc5fee"
       );
       setCampaignFactory(campaignFactory);
 
