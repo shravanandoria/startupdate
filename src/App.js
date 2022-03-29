@@ -74,7 +74,7 @@ const App = () => {
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/startupdate">
         <Navbar account={account} />
         <Routes>
           <Route
