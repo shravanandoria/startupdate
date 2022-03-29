@@ -78,7 +78,7 @@ const App = () => {
         <Navbar account={account} />
         <Routes>
           <Route
-            path="/startupdate/"
+            path="/"
             element={
               !loading ? (
                 <Home
