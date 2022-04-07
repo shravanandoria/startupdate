@@ -39,6 +39,7 @@ const CreateCampaign = (props) => {
       setError(false);
       //uploading image to Ipfs
       const image = await ipfs.add(buffer);
+      console.log(image)
       const imageUrl = `https://ipfs.infura.io/ipfs/${image[0].path}`;
 
       const web3 = window.web3;
