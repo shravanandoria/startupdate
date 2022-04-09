@@ -67,7 +67,7 @@ const App = () => {
       setLoading(false);
     } else {
       window.alert(
-        "Decentragram contract not been deployed to detected network"
+        "Startupdate contract not been deployed to detected network"
       );
     }
   };
